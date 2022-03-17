@@ -1,3 +1,4 @@
+const {ENCODING} = require("./constants");
 let connection;
 
 const setupInput = (conn) => {
@@ -31,7 +32,7 @@ const setupInput = (conn) => {
 
   const stdin = process.stdin;
   stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
+  stdin.setEncoding(ENCODING);
   stdin.resume();
   stdin.on("data", handleUserInput);
   return stdin;
