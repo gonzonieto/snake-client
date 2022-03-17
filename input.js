@@ -19,6 +19,14 @@ const setupInput = (conn) => {
     if (key === 'a') move.left();
     if (key === 's') move.down();
     if (key === 'd') move.right();
+
+    if (key === 'h') connection.write("Say: Help me!!! :(");
+    if (key === 'i') connection.write("Say: Stuck in snek factry");
+    if (key === 'm') connection.write("Say: me so hungwy :(");
+    if (key === 'n') connection.write("Say: AWW YEE SNAX 4 SNEK!");
+    if (key === ',') connection.write("Say: where is füd?");
+    if (key === 'j') connection.write("Say: !!!!!");
+
   };
 
   const stdin = process.stdin;
