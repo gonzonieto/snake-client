@@ -9,9 +9,15 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8');
 
+  // on connection
+  conn.on('connect', () => {
+    console.log("Connection successfully established!");
+    conn.write("Name: GAN");
+  });
+
   // receive incoming data and log it to console
   conn.on('data', (data) => {
-    console.log(data.toString())
+    console.log(data.toString());
   });
   return conn;
 };

@@ -4,9 +4,4 @@ const {connect} = require('./client');
 
 console.log("Connecting ...");
 
-snakeNum = 1;
-snakes = {};
-
-for (let i = 0; i < snakeNum; i++) {
-  snakes[i] = connect()
-}
+const snake = connect();
