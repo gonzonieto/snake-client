@@ -18,12 +18,26 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8');
 
+  const steps = 40;
+
   // on connection
   conn.on('connect', () => {
     console.log("Connection successfully established!");
     conn.write("Name: GAN");
-    // for (let i = 0; i < 150; i++) {
-    //   setTimeout(move.up, i * delay);
+    // snake square dance
+    // for (let i = 0; i < steps; i++) {
+    //   if (i < steps * 0.25) {
+    //     setTimeout(move.up, i * delay);
+    //   }
+    //   if (i >= steps * 0.25 && i < steps * 0.5) {
+    //     setTimeout(move.right, i * delay);
+    //   }
+    //   if (i >= steps * 0.5 && i < steps * 0.75) {
+    //     setTimeout(move.down, i * delay);
+    //   }
+    //   if (i >= steps * 0.75 && i < steps) {
+    //     setTimeout(move.left, i * delay);
+    //   }
     // }
   });
 
