@@ -6,8 +6,6 @@ const connect = function() {
     port: '50541'
   });
 
-  const delay = 50;
-
   const move = {
     up: () => conn.write("Move: up"),
     down: () => conn.write("Move: down"),
@@ -18,13 +16,12 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8');
 
-  const steps = 40;
-
   // on connection
   conn.on('connect', () => {
     console.log("Connection successfully established!");
     conn.write("Name: GAN");
     // snake square dance
+    // const steps = 40;
     // for (let i = 0; i < steps; i++) {
     //   if (i < steps * 0.25) {
     //     setTimeout(move.up, i * delay);
