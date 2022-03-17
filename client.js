@@ -6,6 +6,15 @@ const connect = function() {
     port: '50541'
   });
 
+  const delay = 50;
+
+  const move = {
+    up: () => conn.write("Move: up"),
+    down: () => conn.write("Move: down"),
+    left: () => conn.write("Move: left"),
+    right: () => conn.write("Move: right")
+  };
+
   // interpret incoming data as text
   conn.setEncoding('utf8');
 
@@ -13,6 +22,9 @@ const connect = function() {
   conn.on('connect', () => {
     console.log("Connection successfully established!");
     conn.write("Name: GAN");
+    // for (let i = 0; i < 150; i++) {
+    //   setTimeout(move.up, i * delay);
+    // }
   });
 
   // receive incoming data and log it to console
