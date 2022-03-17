@@ -1,8 +1,9 @@
-const {ENCODING} = require("./constants");
+const {ENCODING, KEYS} = require("./constants");
 let connection;
 
 const setupInput = (conn) => {
   connection = conn;
+  const write = connection.write;
 
   const handleUserInput = function(key) {
     if (key === '\u0003') {
@@ -10,16 +11,16 @@ const setupInput = (conn) => {
     }
 
     const move = {
-      up: () => connection.write("Move: up"),
-      down: () => connection.write("Move: down"),
-      left: () => connection.write("Move: left"),
-      right: () => connection.write("Move: right")
+      up: () => write(KEYS.UP.cmd),
+      down: () => write(KEYS.DOWN.cmd),
+      left: () => write(KEYS.LEFT.cmd),
+      right: () => write(KEYS.RIGHT.cmd),
     };
 
-    if (key === 'w') move.up();
-    if (key === 'a') move.left();
-    if (key === 's') move.down();
-    if (key === 'd') move.right();
+    if (key === KEYS.UP) move.up();
+    if (key === KEYS.LEFT) move.left();
+    if (key === KEYS.DOWN) move.down();
+    if (key === KEYS.RIGHT) move.right();
 
     if (key === 'h') connection.write("Say: Help me!!! :(");
     if (key === 'i') connection.write("Say: Stuck in snek factry");
